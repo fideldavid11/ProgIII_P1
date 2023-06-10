@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Usuarios1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="id_student" />
+    </Key>
+    <Property Name="id_student" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Nombres_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Apellidos_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Pais_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Email_estudiante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password_estudiante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono_estudiante" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materias">
+    <Key>
+      <PropertyRef Name="id_materia" />
+    </Key>
+    <Property Name="id_materia" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Nombres_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Apellidos_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Materia" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Hora" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Email_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="Usuarios1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+    <EntitySet Name="Materias" EntityType="Self.Materias" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+  </EntityContainer>
+</Schema>

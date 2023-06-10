@@ -1,0 +1,103 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    background-image: url("https://grupoinmotion.com/wp-content/uploads/2020/12/inteligencia-artificial-770x400.jpg"), url("https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2018/04/299947-usos-ia.jpg?tf=1200x");
+    background-size: cover;
+    animation: cambioImagenes 15s infinite;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0,  0,  0,  0.1);
+}
+
+@keyframes cambioImagenes {
+    0% {
+        background-image: url("https://marketing4ecommerce.net/wp-content/uploads/2022/09/Copia-de-PLANTILLA-PORTADA-750X450-2022-09-01T164351.500-1.jpg");
+    }
+
+    33.33% {
+        background-image: url("https://www.atriainnovation.com/wp-content/uploads/2020/10/PORTADA-1.jpg");
+    }
+
+    66.66% {
+        background-image: url("https://thestandardcio.com/wp-content/uploads/sites/2/2022/06/IA-1.jpg");
+    }
+
+    100% {
+        background-image: url("https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2023/04/invertir-inteligencia-artificial-3007646.jpg?tf=3840x");
+    }
+
+      
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+    .form-control:focus {
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+
+.text-danger {
+    color: red;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+    .btn-default:hover,
+    .btn-default:focus,
+    .btn-default:active {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+    }

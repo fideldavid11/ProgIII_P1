@@ -1,0 +1,214 @@
+﻿@model Projecto1.Models.Materias
+
+<html>
+<head>
+    <title>Registrar materias</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+            .form-control:focus {
+                border-color: #66afe9;
+                outline: 0;
+                box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+            }
+
+        .text-danger {
+            color: red;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .btn-default {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+
+            .btn-default:hover,
+            .btn-default:focus,
+            .btn-default:active {
+                color: #333;
+                background-color: #e6e6e6;
+                border-color: #adadad;
+            }
+    </style>
+</head>
+
+@{
+    string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789";
+    Random random = new Random();
+    int longitud = random.Next(1, 6);
+    string codigo1 = new string(Enumerable.Range(1, longitud)
+        .Select(_ => caracteres[random.Next(caracteres.Length)])
+        .Distinct()
+        .ToArray());
+
+    Console.WriteLine("Código aleatorio: " + codigo1);
+}
+@{
+    ViewBag.Title = "Registrar materias";
+}
+
+@{
+
+    var Materia = new List<SelectListItem>
+    { 
+      new SelectListItem { Value = "ASP.NET MVC", Text = "ASP.NET MVC" },
+      new SelectListItem { Value = "C# CONSOLA", Text = "C# CONSOLA" },
+      new SelectListItem { Value = "WINDOWS FORM", Text = "WINDOWS FORM" },
+      new SelectListItem { Value = "ASP.NET ANGULAR", Text = "ASP.NET ANGULAR" },
+      new SelectListItem { Value = "ASP.NET REACT", Text = "ASP.NET REACT" }
+      
+
+    };
+
+
+    }
+
+@{ 
+
+
+    var Horario = new List<SelectListItem>
+    {
+      new SelectListItem { Value = "8:00 AM - 12: 00 PM", Text = "8:00 AM - 12: 00 PM" },
+      new SelectListItem { Value = "1:00 PM - 3:00PM", Text = "1:00 PM - 3:00PM" },
+      new SelectListItem { Value = "3:30 PM - 5:30 PM", Text = "3:30 PM - 5:30 PM" },
+      new SelectListItem { Value = "6:00 PM - 8:00 PM", Text = "6:00 PM - 8:00 PM" },
+      new SelectListItem { Value = "8:00 PM - 10:00 PM", Text = "8:00 PM - 10:00 PM" }
+
+     };
+
+}
+<body>
+
+    <h2>Registrar materia</h2>
+
+
+    @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Materias</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.id_materia, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.id_materia, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", Value = @codigo1 } })
+                            @Html.ValidationMessageFor(model => model.id_materia, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nombres_estudiante, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Nombres_estudiante, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nombres_estudiante, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Apellidos_estudiante, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Apellidos_estudiante, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Apellidos_estudiante, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Materia, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Materia, new SelectList(Materia, "Value", "Text"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Materia, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Hora, new SelectList(Horario, "Value", "Text"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email_estudiante, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email_estudiante, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email_estudiante, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Enviar" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

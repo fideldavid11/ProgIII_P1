@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Usuarios1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="id_student" />
+          </Key>
+          <Property Name="id_student" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombres_estudiante" Type="nchar" MaxLength="100" />
+          <Property Name="Apellidos_estudiante" Type="nchar" MaxLength="100" />
+          <Property Name="Pais_estudiante" Type="nchar" MaxLength="100" />
+          <Property Name="Email_estudiante" Type="nvarchar(max)" />
+          <Property Name="Password_estudiante" Type="nvarchar(max)" />
+          <Property Name="Telefono_estudiante" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materias">
+          <Key>
+            <PropertyRef Name="id_materia" />
+          </Key>
+          <Property Name="id_materia" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombres_estudiante" Type="nchar" MaxLength="100" />
+          <Property Name="Apellidos_estudiante" Type="nchar" MaxLength="100" />
+          <Property Name="Materia" Type="nchar" MaxLength="100" />
+          <Property Name="Hora" Type="nchar" MaxLength="100" />
+          <Property Name="Email_estudiante" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="Usuarios1ModelStoreContainer">
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materias" EntityType="Self.Materias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Usuarios1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="id_student" />
+          </Key>
+          <Property Name="id_student" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombres_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Apellidos_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Pais_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Email_estudiante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password_estudiante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono_estudiante" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materias">
+          <Key>
+            <PropertyRef Name="id_materia" />
+          </Key>
+          <Property Name="id_materia" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombres_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Apellidos_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Materia" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Hora" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Email_estudiante" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="Usuarios1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+          <EntitySet Name="Materias" EntityType="Self.Materias" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Usuarios1ModelStoreContainer" CdmEntityContainer="Usuarios1Entities">
+          <EntitySetMapping Name="Estudiante">
+            <EntityTypeMapping TypeName="Usuarios1Model.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="id_student" ColumnName="id_student" />
+                <ScalarProperty Name="Nombres_estudiante" ColumnName="Nombres_estudiante" />
+                <ScalarProperty Name="Apellidos_estudiante" ColumnName="Apellidos_estudiante" />
+                <ScalarProperty Name="Pais_estudiante" ColumnName="Pais_estudiante" />
+                <ScalarProperty Name="Email_estudiante" ColumnName="Email_estudiante" />
+                <ScalarProperty Name="Password_estudiante" ColumnName="Password_estudiante" />
+                <ScalarProperty Name="Telefono_estudiante" ColumnName="Telefono_estudiante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materias">
+            <EntityTypeMapping TypeName="Usuarios1Model.Materias">
+              <MappingFragment StoreEntitySet="Materias">
+                <ScalarProperty Name="id_materia" ColumnName="id_materia" />
+                <ScalarProperty Name="Nombres_estudiante" ColumnName="Nombres_estudiante" />
+                <ScalarProperty Name="Apellidos_estudiante" ColumnName="Apellidos_estudiante" />
+                <ScalarProperty Name="Materia" ColumnName="Materia" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Email_estudiante" ColumnName="Email_estudiante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Usuarios1Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

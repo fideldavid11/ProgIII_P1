@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Usuarios1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="id_student" />
+    </Key>
+    <Property Name="id_student" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombres_estudiante" Type="nchar" MaxLength="100" />
+    <Property Name="Apellidos_estudiante" Type="nchar" MaxLength="100" />
+    <Property Name="Pais_estudiante" Type="nchar" MaxLength="100" />
+    <Property Name="Email_estudiante" Type="nvarchar(max)" />
+    <Property Name="Password_estudiante" Type="nvarchar(max)" />
+    <Property Name="Telefono_estudiante" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materias">
+    <Key>
+      <PropertyRef Name="id_materia" />
+    </Key>
+    <Property Name="id_materia" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombres_estudiante" Type="nchar" MaxLength="100" />
+    <Property Name="Apellidos_estudiante" Type="nchar" MaxLength="100" />
+    <Property Name="Materia" Type="nchar" MaxLength="100" />
+    <Property Name="Hora" Type="nchar" MaxLength="100" />
+    <Property Name="Email_estudiante" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="Usuarios1ModelStoreContainer">
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materias" EntityType="Self.Materias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
